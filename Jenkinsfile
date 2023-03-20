@@ -9,7 +9,7 @@ pipeline {
         stage("Create nginx-conroller") {
             steps {
                 script {
-                    dir('nginx-controller') {
+                    dir('the-nginx-controller') {
                        sh "aws eks --region us-east-1 update-kubeconfig --name demo"
                         sh "terraform init"
                         sh "terraform apply -auto-approve"
@@ -54,7 +54,7 @@ pipeline {
         stage("Deploy ingress rule to EKS") {
             steps {
                 script {
-                    dir('ingress-rule') {
+                    dir('the-ingress-rule') {
                         sh "terraform init"
                         sh "terraform apply -auto-approve"
                     }
