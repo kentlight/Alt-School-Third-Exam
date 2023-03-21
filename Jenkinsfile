@@ -43,7 +43,7 @@ pipeline {
         stage("Deploy sock-shop to EKS") {
             steps {
                 script {
-                    dir('sock-shop') {
+                    dir('my-sock-shop') {
                         sh "terraform init"
                         sh "terraform apply -auto-approve"
                     }
